@@ -1,6 +1,7 @@
 
 import express from "express";
 import {AddressInfo} from "net";
+import {transactionRouter} from "./router/transactionRouter"
 import cors from "cors";
 
 const app = express();
@@ -9,7 +10,7 @@ app.use(cors())
 
 app.use(express.json());
 
-// routes
+app.use("/transaction/", transactionRouter)
 
 
 const server = app.listen(3003, () => {
