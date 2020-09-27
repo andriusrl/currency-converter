@@ -49,7 +49,7 @@ var TransactionController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, new TransactionBusiness_1.TransactionBusiness(new TransactionDatabase_1.TransactionDatabase).createTransaction(req.body.id, req.body.origin, req.body.destiny, req.body.tax, req.body.date)];
+                        return [4 /*yield*/, new TransactionBusiness_1.TransactionBusiness(new TransactionDatabase_1.TransactionDatabase).createTransaction(req.body.id, req.body.origin, req.body.value, req.body.destiny, req.body.tax, req.body.date)];
                     case 1:
                         result = _a.sent();
                         res.status(200).send(result);

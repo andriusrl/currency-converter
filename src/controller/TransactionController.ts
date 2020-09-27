@@ -10,6 +10,7 @@ export class TransactionController {
             const result = await new TransactionBusiness(new TransactionDatabase).createTransaction(
                 req.body.id,
                 req.body.origin,
+                req.body.value,
                 req.body.destiny,
                 req.body.tax,
                 req.body.date

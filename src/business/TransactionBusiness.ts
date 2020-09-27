@@ -9,12 +9,13 @@ export class TransactionBusiness {
     public async createTransaction(
         id: string,
         origin: string,
+        value: Number,
         destiny: string,
         tax: Number,
         date: Date
     ){
         await this.transactionDatabase.createTransaction(
-            new Transaction(id, origin, destiny, tax, date)
+            new Transaction(id, origin, value, destiny, tax, date)
         )
     }
 }

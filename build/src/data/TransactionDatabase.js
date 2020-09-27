@@ -63,40 +63,9 @@ var TransactionDatabase = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log("Testando");
                         console.log(transaction);
-                        // console.log(transaction.getId)
-                        // console.log(transaction.getOrigin)
-                        // console.log(transaction.getDestiny)
-                        // console.log(transaction.getTax)
-                        // console.log(transaction.getDate)
-                        // await super.getConnection().raw(`
-                        //     INSERT INTO ${this.tableName} (id, origin, destiny, tax, date)
-                        //     VALUES (
-                        //     '${transaction.getId}',
-                        //     '${transaction.getOrigin}',
-                        //     '${transaction.getDestiny}',
-                        //     '${transaction.getTax}',
-                        //     '${transaction.getDate}'
-                        //     );
-                        // `)
-                        return [4 /*yield*/, _super.prototype.getConnection.call(this).raw("\n            INSERT INTO " + this.tableName + " (id, origin, destiny, tax, date)\n            VALUES (\n            '" + transaction.getId() + "',\n            '" + transaction.getOrigin() + "',\n            '" + transaction.getDestiny() + "',\n            '" + transaction.getTax() + "',\n            '" + transaction.getDate() + "'\n            );\n        ")];
+                        return [4 /*yield*/, _super.prototype.getConnection.call(this).raw("\n            INSERT INTO " + this.tableName + " (id, origin, value, destiny, tax, date)\n            VALUES (\n            '" + transaction.getId() + "',\n            '" + transaction.getOrigin() + "',\n            '" + transaction.getValue() + "',\n            '" + transaction.getDestiny() + "',\n            '" + transaction.getTax() + "',\n            '" + transaction.getDate() + "'\n            );\n        ")];
                     case 1:
-                        // console.log(transaction.getId)
-                        // console.log(transaction.getOrigin)
-                        // console.log(transaction.getDestiny)
-                        // console.log(transaction.getTax)
-                        // console.log(transaction.getDate)
-                        // await super.getConnection().raw(`
-                        //     INSERT INTO ${this.tableName} (id, origin, destiny, tax, date)
-                        //     VALUES (
-                        //     '${transaction.getId}',
-                        //     '${transaction.getOrigin}',
-                        //     '${transaction.getDestiny}',
-                        //     '${transaction.getTax}',
-                        //     '${transaction.getDate}'
-                        //     );
-                        // `)
                         _a.sent();
                         return [4 /*yield*/, _super.prototype.destroyConnection.call(this)];
                     case 2:

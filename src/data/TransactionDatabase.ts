@@ -9,10 +9,11 @@ export class TransactionDatabase extends BaseDataBase {
 
         console.log(transaction)
         await super.getConnection().raw(`
-            INSERT INTO ${this.tableName} (id, origin, destiny, tax, date)
+            INSERT INTO ${this.tableName} (id, origin, value, destiny, tax, date)
             VALUES (
             '${transaction.getId()}',
             '${transaction.getOrigin()}',
+            '${transaction.getValue()}',
             '${transaction.getDestiny()}',
             '${transaction.getTax()}',
             '${transaction.getDate()}'

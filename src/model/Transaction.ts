@@ -2,6 +2,7 @@ export class Transaction {
     constructor(
         private id: string,
         private origin: string,
+        private value: Number,
         private destiny: string,
         private tax: Number,
         private date: Date
@@ -13,6 +14,10 @@ export class Transaction {
 
     public getOrigin(): string {
         return this.origin
+    }
+
+    public getValue(): Number {
+        return this.value
     }
 
     public getDestiny(): string {

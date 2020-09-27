@@ -42,11 +42,11 @@ var TransactionBusiness = /** @class */ (function () {
     function TransactionBusiness(transactionDatabase) {
         this.transactionDatabase = transactionDatabase;
     }
-    TransactionBusiness.prototype.createTransaction = function (id, origin, destiny, tax, date) {
+    TransactionBusiness.prototype.createTransaction = function (id, origin, value, destiny, tax, date) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.transactionDatabase.createTransaction(new Transaction_1.Transaction(id, origin, destiny, tax, date))];
+                    case 0: return [4 /*yield*/, this.transactionDatabase.createTransaction(new Transaction_1.Transaction(id, origin, value, destiny, tax, date))];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
