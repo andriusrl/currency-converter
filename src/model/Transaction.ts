@@ -1,11 +1,13 @@
+import * as moment from 'moment';
+
 export class Transaction {
     constructor(
         private id: string,
         private origin: string,
         private value: Number,
         private destiny: string,
-        private date: Date,
-        private tax?: Number,
+        private date: moment.Moment,
+        private tax: Number,
     ){ }
 
     public getId(): string {
@@ -24,11 +26,11 @@ export class Transaction {
         return this.destiny
     }
 
-    public getTax(): Number | undefined {
+    public getTax(): Number {
         return this.tax
     }
 
-    public getDate(): Date {
+    public getDate(): moment.Moment {
         return this.date
     }
 }

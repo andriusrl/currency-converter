@@ -11,8 +11,7 @@ export class TransactionController {
                 req.body.id,
                 req.body.origin,
                 req.body.value,
-                req.body.destiny,
-                req.body.date
+                req.body.destiny
             )
             res.status(200).send(result)
         } catch (err) {

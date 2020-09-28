@@ -1,5 +1,6 @@
 import { Transaction } from "../model/Transaction";
 import {BaseDataBase} from "./BaseDatabase";
+import moment from "moment"
 
 
 export class TransactionDatabase extends BaseDataBase {
@@ -15,7 +16,7 @@ export class TransactionDatabase extends BaseDataBase {
             '${transaction.getOrigin()}',
             '${transaction.getValue()}',
             '${transaction.getDestiny()}',
-            '${transaction.getDate()}',
+            '${moment(transaction.getDate()).format('YYYY-MM-DD HH:mm:ss')}',
             '${transaction.getTax()}'
             );
         `)

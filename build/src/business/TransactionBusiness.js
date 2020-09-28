@@ -42,19 +42,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionBusiness = void 0;
 var Transaction_1 = require("../model/Transaction");
 var node_fetch_1 = __importDefault(require("node-fetch"));
+var moment_1 = __importDefault(require("moment"));
 var TransactionBusiness = /** @class */ (function () {
     function TransactionBusiness(transactionDatabase) {
         this.transactionDatabase = transactionDatabase;
     }
-    TransactionBusiness.prototype.createTransaction = function (id, origin, value, destiny, date) {
+    TransactionBusiness.prototype.createTransaction = function (id, origin, value, destiny) {
         return __awaiter(this, void 0, void 0, function () {
-            var taxValue, resultId;
+            var date, taxValue, resultId;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, node_fetch_1.default(process.env.URL_EXCHANGERATESAPI + "USD", { method: 'GET' })
-                            .then(function (res) {
-                            return res.json();
-                        })];
+                    case 0:
+                        date = moment_1.default();
+                        return [4 /*yield*/, node_fetch_1.default(process.env.URL_EXCHANGERATESAPI + "USD", { method: 'GET' })
+                                .then(function (res) {
+                                return res.json();
+                            })];
                     case 1:
                         taxValue = (_a.sent()).rates[origin];
                         return [4 /*yield*/, this.transactionDatabase.createTransaction(new Transaction_1.Transaction(id, origin, value, destiny, date, taxValue))];
@@ -69,7 +72,7 @@ var TransactionBusiness = /** @class */ (function () {
                                 destiny: destiny,
                                 destinyValue: Number(value) * parseFloat(taxValue),
                                 tax: taxValue,
-                                date: date
+                                date: date.format("YYYY-MM-DD HH:mm:ss")
                             }];
                 }
             });

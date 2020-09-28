@@ -48,9 +48,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionDatabase = void 0;
 var BaseDatabase_1 = require("./BaseDatabase");
+var moment_1 = __importDefault(require("moment"));
 var TransactionDatabase = /** @class */ (function (_super) {
     __extends(TransactionDatabase, _super);
     function TransactionDatabase() {
@@ -65,7 +69,7 @@ var TransactionDatabase = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         console.log(transaction);
-                        return [4 /*yield*/, _super.prototype.getConnection.call(this).raw("\n            INSERT INTO " + this.tableName + " (id_user, origin, value, destiny, date, tax)\n            VALUES (\n            '" + transaction.getId() + "',\n            '" + transaction.getOrigin() + "',\n            '" + transaction.getValue() + "',\n            '" + transaction.getDestiny() + "',\n            '" + transaction.getDate() + "',\n            '" + transaction.getTax() + "'\n            );\n        ")];
+                        return [4 /*yield*/, _super.prototype.getConnection.call(this).raw("\n            INSERT INTO " + this.tableName + " (id_user, origin, value, destiny, date, tax)\n            VALUES (\n            '" + transaction.getId() + "',\n            '" + transaction.getOrigin() + "',\n            '" + transaction.getValue() + "',\n            '" + transaction.getDestiny() + "',\n            '" + moment_1.default(transaction.getDate()).format('YYYY-MM-DD HH:mm:ss') + "',\n            '" + transaction.getTax() + "'\n            );\n        ")];
                     case 1:
                         result = _a.sent();
                         return [4 /*yield*/, _super.prototype.destroyConnection.call(this)];
