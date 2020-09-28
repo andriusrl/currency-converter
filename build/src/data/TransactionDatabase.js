@@ -66,12 +66,12 @@ var TransactionDatabase = /** @class */ (function (_super) {
             var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, _super.prototype.getConnection.call(this).raw("\n            INSERT INTO " + this.tableName + " (id_user, origin, value, destiny, date, tax)\n            VALUES (\n            '" + transaction.getId() + "',\n            '" + transaction.getOrigin() + "',\n            '" + transaction.getValue() + "',\n            '" + transaction.getDestiny() + "',\n            '" + moment_1.default(transaction.getDate()).format('YYYY-MM-DD HH:mm:ss') + "',\n            '" + transaction.getTax() + "'\n            );\n        ")];
+                    case 0: return [4 /*yield*/, _super.prototype.getConnection.call(this).raw("\n            INSERT INTO " + this.tableName + " (id_user, origin, value, destiny, date, tax)\n            VALUES (\n            '" + transaction.getId() + "',\n            '" + transaction.getOrigin() + "',\n            '" + transaction.getValue() + "',\n            '" + transaction.getDestiny() + "',\n            '" + moment_1.default(transaction.getDate()).format('YYYY-MM-DD HH:mm:ss') + "',\n            '" + transaction.getTax() + "'\n            );\n        ")
+                        // await super.destroyConnection()
+                    ];
                     case 1:
                         result = _a.sent();
-                        return [4 /*yield*/, _super.prototype.destroyConnection.call(this)];
-                    case 2:
-                        _a.sent();
+                        // await super.destroyConnection()
                         return [2 /*return*/, result[0].insertId];
                 }
             });
@@ -82,12 +82,12 @@ var TransactionDatabase = /** @class */ (function (_super) {
             var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getConnection().raw("\n            SELECT * FROM " + this.tableName + "\n                WHERE id_user = \"" + idUser + "\";\n        ")];
+                    case 0: return [4 /*yield*/, this.getConnection().raw("\n            SELECT * FROM " + this.tableName + "\n                WHERE id_user = \"" + idUser + "\";\n        ")
+                        // await super.destroyConnection()
+                    ];
                     case 1:
                         result = _a.sent();
-                        return [4 /*yield*/, _super.prototype.destroyConnection.call(this)];
-                    case 2:
-                        _a.sent();
+                        // await super.destroyConnection()
                         return [2 /*return*/, result[0]];
                 }
             });

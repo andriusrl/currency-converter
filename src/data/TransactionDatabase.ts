@@ -18,7 +18,7 @@ export class TransactionDatabase extends BaseDataBase {
             '${transaction.getTax()}'
             );
         `)
-        await super.destroyConnection()
+        // await super.destroyConnection()
         return result[0].insertId
     }
 
@@ -27,7 +27,7 @@ export class TransactionDatabase extends BaseDataBase {
             SELECT * FROM ${this.tableName}
                 WHERE id_user = "${idUser}";
         `)
-        await super.destroyConnection()
+        // await super.destroyConnection()
         return result[0]
     }
 }
