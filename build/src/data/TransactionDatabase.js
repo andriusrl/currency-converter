@@ -60,17 +60,18 @@ var TransactionDatabase = /** @class */ (function (_super) {
     }
     TransactionDatabase.prototype.createTransaction = function (transaction) {
         return __awaiter(this, void 0, void 0, function () {
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         console.log(transaction);
-                        return [4 /*yield*/, _super.prototype.getConnection.call(this).raw("\n            INSERT INTO " + this.tableName + " (id, origin, value, destiny, tax, date)\n            VALUES (\n            '" + transaction.getId() + "',\n            '" + transaction.getOrigin() + "',\n            '" + transaction.getValue() + "',\n            '" + transaction.getDestiny() + "',\n            '" + transaction.getTax() + "',\n            '" + transaction.getDate() + "'\n            );\n        ")];
+                        return [4 /*yield*/, _super.prototype.getConnection.call(this).raw("\n            INSERT INTO " + this.tableName + " (id_user, origin, value, destiny, date, tax)\n            VALUES (\n            '" + transaction.getId() + "',\n            '" + transaction.getOrigin() + "',\n            '" + transaction.getValue() + "',\n            '" + transaction.getDestiny() + "',\n            '" + transaction.getDate() + "',\n            '" + transaction.getTax() + "'\n            );\n        ")];
                     case 1:
-                        _a.sent();
+                        result = _a.sent();
                         return [4 /*yield*/, _super.prototype.destroyConnection.call(this)];
                     case 2:
                         _a.sent();
-                        return [2 /*return*/];
+                        return [2 /*return*/, result[0].insertId];
                 }
             });
         });

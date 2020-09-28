@@ -4,8 +4,8 @@ export class Transaction {
         private origin: string,
         private value: Number,
         private destiny: string,
-        private tax: Number,
-        private date: Date
+        private date: Date,
+        private tax?: Number,
     ){ }
 
     public getId(): string {
@@ -24,7 +24,7 @@ export class Transaction {
         return this.destiny
     }
 
-    public getTax(): Number {
+    public getTax(): Number | undefined {
         return this.tax
     }
 

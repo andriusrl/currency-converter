@@ -12,7 +12,6 @@ export class TransactionController {
                 req.body.origin,
                 req.body.value,
                 req.body.destiny,
-                req.body.tax,
                 req.body.date
             )
             res.status(200).send(result)

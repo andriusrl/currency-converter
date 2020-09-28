@@ -46,22 +46,31 @@ var TransactionBusiness = /** @class */ (function () {
     function TransactionBusiness(transactionDatabase) {
         this.transactionDatabase = transactionDatabase;
     }
-    TransactionBusiness.prototype.createTransaction = function (id, origin, value, destiny, tax, date) {
+    TransactionBusiness.prototype.createTransaction = function (id, origin, value, destiny, date) {
         return __awaiter(this, void 0, void 0, function () {
-            var result, taxValue;
+            var taxValue, resultId;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.transactionDatabase.createTransaction(new Transaction_1.Transaction(id, origin, value, destiny, tax, date))];
+                    case 0: return [4 /*yield*/, node_fetch_1.default(process.env.URL_EXCHANGERATESAPI + "USD", { method: 'GET' })
+                            .then(function (res) {
+                            return res.json();
+                        })];
                     case 1:
-                        result = _a.sent();
-                        return [4 /*yield*/, node_fetch_1.default(process.env.URL_EXCHANGERATESAPI + "USD", { method: 'GET' })
-                                .then(function (res) {
-                                return res.json();
-                            })];
-                    case 2:
                         taxValue = (_a.sent()).rates[origin];
+                        return [4 /*yield*/, this.transactionDatabase.createTransaction(new Transaction_1.Transaction(id, origin, value, destiny, date, taxValue))];
+                    case 2:
+                        resultId = _a.sent();
                         console.log(taxValue);
-                        return [2 /*return*/, "Tudo certo"];
+                        return [2 /*return*/, {
+                                idTransaction: resultId,
+                                idUser: id,
+                                origin: origin,
+                                originValue: value,
+                                destiny: destiny,
+                                destinyValue: Number(value) * parseFloat(taxValue),
+                                tax: taxValue,
+                                date: date
+                            }];
                 }
             });
         });

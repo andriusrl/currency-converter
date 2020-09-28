@@ -12,19 +12,27 @@ export class TransactionBusiness {
         origin: string,
         value: Number,
         destiny: string,
-        tax: Number,
         date: Date
     ){
-        const result = await this.transactionDatabase.createTransaction(
-             new Transaction(id, origin, value, destiny, tax, date)
-        )
-
         const taxValue = (await fetch(`${process.env.URL_EXCHANGERATESAPI}USD`, { method: 'GET' })
             .then((res) => {
                 return res.json()
             })).rates[origin]
 
+        const resultId: Number = await this.transactionDatabase.createTransaction(
+             new Transaction(id, origin, value, destiny, date, taxValue)
+        )
+
         console.log(taxValue)
-        return "Tudo certo"
+        return {
+            idTransaction: resultId,
+            idUser: id,
+            origin: origin,
+            originValue: value,
+            destiny: destiny,
+            destinyValue: Number(value) * parseFloat(taxValue),
+            tax: taxValue,
+            date: date
+        }
     }
 }
