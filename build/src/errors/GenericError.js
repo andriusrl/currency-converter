@@ -13,7 +13,6 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GenericError = void 0;
 var BaseError_1 = require("./BaseError/BaseError");
 var GenericError = /** @class */ (function (_super) {
     __extends(GenericError, _super);
