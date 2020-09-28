@@ -73,6 +73,9 @@ var TransactionController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
+                        if (req.body.id === undefined) {
+                            throw new Error("Request body is missing information");
+                        }
                         return [4 /*yield*/, new TransactionBusiness_1.TransactionBusiness(new TransactionDatabase_1.TransactionDatabase).getTransactions(req.body.id)];
                     case 1:
                         result = _a.sent();
