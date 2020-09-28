@@ -66,6 +66,30 @@ var TransactionController = /** @class */ (function () {
             });
         });
     };
+    TransactionController.prototype.getTransactions = function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var result, err_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        if (req.body.id === undefined) {
+                            throw new Error("Request body is missing information");
+                        }
+                        return [4 /*yield*/, new TransactionBusiness_1.TransactionBusiness(new TransactionDatabase_1.TransactionDatabase).getTransactions(req.body.id)];
+                    case 1:
+                        result = _a.sent();
+                        res.status(200).send(result);
+                        return [3 /*break*/, 3];
+                    case 2:
+                        err_2 = _a.sent();
+                        res.status(err_2.errorCode || 400).send({ message: err_2.message });
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
     return TransactionController;
 }());
 exports.TransactionController = TransactionController;

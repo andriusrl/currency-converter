@@ -24,8 +24,6 @@ export class TransactionBusiness {
         const resultId: Number = await this.transactionDatabase.createTransaction(
              new Transaction(id, origin, value, destiny, date, taxValue)
         )
-
-        console.log(taxValue)
         return {
             idTransaction: resultId,
             idUser: id,
@@ -36,5 +34,22 @@ export class TransactionBusiness {
             tax: taxValue,
             date: date.format("YYYY-MM-DD HH:mm:ss")
         }
+    }
+
+    public async getTransactions(
+        idUser: string
+    ){
+        
+        const result = await this.transactionDatabase.getTransactions(idUser)
+
+        return result.map((transaction)=>{return {
+            idTransaction: transaction.id,
+            idUser: transaction.id_user,
+            origin: transaction.origin,
+            destiny: transaction.destiny,
+            tax: transaction.tax,
+            date: momentFunc(transaction.date).format('YYYY-MM-DD HH:mm:ss'),
+            value: transaction.value
+        }})
     }
 }

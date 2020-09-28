@@ -23,4 +23,18 @@ export class TransactionController {
         }
     }
 
+    async getTransactions(req: Request, res: Response) {
+        try{
+            if (req.body.id === undefined) {
+                throw new Error("Request body is missing information")
+            }
+            const result = await new TransactionBusiness(new TransactionDatabase).getTransactions(
+                req.body.id
+            )
+            res.status(200).send(result)
+        } catch (err) {
+            res.status(err.errorCode || 400).send({ message: err.message })
+        }
+    }
+
 }
