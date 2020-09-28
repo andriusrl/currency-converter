@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Transaction = void 0;
 var Transaction = /** @class */ (function () {
     function Transaction(id, origin, value, destiny, date, tax) {
         this.id = id;

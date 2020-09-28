@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CoinType = void 0;
 var CoinType;
 (function (CoinType) {
     CoinType["CAD"] = "CAD";
