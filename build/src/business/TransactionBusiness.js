@@ -53,12 +53,12 @@ var TransactionBusiness = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         date = moment_1.default();
-                        return [4 /*yield*/, node_fetch_1.default(process.env.URL_EXCHANGERATESAPI + "USD", { method: 'GET' })
+                        return [4 /*yield*/, node_fetch_1.default("" + process.env.URL_EXCHANGERATESAPI + origin, { method: 'GET' })
                                 .then(function (res) {
                                 return res.json();
                             })];
                     case 1:
-                        taxValue = (_a.sent()).rates[origin];
+                        taxValue = (_a.sent()).rates[destiny];
                         return [4 /*yield*/, this.transactionDatabase.createTransaction(new Transaction_1.Transaction(id, origin, value, destiny, date, taxValue))];
                     case 2:
                         resultId = _a.sent();

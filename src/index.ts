@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/transaction/", transactionRouter)
 
 
-const server = app.listen(process.env.PORT || 8080, () => {
+const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
     const address = server.address() as AddressInfo;
     console.log(`Servidor rodando em http://localhost:${address.port}`);
