@@ -17,10 +17,10 @@ export class TransactionBusiness {
     ){
         const date: moment.Moment = momentFunc()
 
-        const taxValue = (await fetch(`${process.env.URL_EXCHANGERATESAPI}USD`, { method: 'GET' })
+        const taxValue = (await fetch(`${process.env.URL_EXCHANGERATESAPI}${origin}`, { method: 'GET' })
             .then((res) => {
                 return res.json()
-            })).rates[origin]
+            })).rates[destiny]
         const resultId: Number = await this.transactionDatabase.createTransaction(
              new Transaction(id, origin, value, destiny, date, taxValue)
         )

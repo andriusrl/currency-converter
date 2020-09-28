@@ -10,7 +10,7 @@ var app = express_1.default();
 app.use(cors_1.default());
 app.use(express_1.default.json());
 app.use("/transaction/", transactionRouter_1.transactionRouter);
-var server = app.listen(process.env.PORT || 8080, function () {
+var server = app.listen(process.env.PORT || 3003, function () {
     if (server) {
         var address = server.address();
         console.log("Servidor rodando em http://localhost:" + address.port);
