@@ -49,6 +49,9 @@ var TransactionController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
+                        if ((req.body.id === undefined) || (req.body.origin === undefined) || (req.body.value === undefined) || (req.body.destiny === undefined)) {
+                            throw new Error("Request body is missing information");
+                        }
                         return [4 /*yield*/, new TransactionBusiness_1.TransactionBusiness(new TransactionDatabase_1.TransactionDatabase).createTransaction(req.body.id, req.body.origin, req.body.value, req.body.destiny)];
                     case 1:
                         result = _a.sent();
