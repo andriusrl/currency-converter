@@ -1,5 +1,3 @@
-> Status do Projeto: Concluido
-
 # Currency Converter
 
 Currency converter é uma API Rest que é capaz de realizar a conversão entre duas moedas.
@@ -14,8 +12,7 @@ https://documenter.getpostman.com/view/10580365/TVKHVbX2
 #### - Express
 #### - MySQL
 #### - Moment
-#### - dontEnv
-
+#### - dotEnv
 
 ## Arquitetura 
 
@@ -24,6 +21,15 @@ https://documenter.getpostman.com/view/10580365/TVKHVbX2
 ## Comandos para recriar banco de dados
 
 #### ./scriptDatabase
+
+## DotEnv
+```
+DB_HOST = ec2-100-25-165-138.compute-1.amazonaws.com
+DB_USER = root
+DB_PASSWORD = By7dg512!
+DB_DATABASE_NAME = sagan_andrius_db
+URL_EXCHANGERATESAPI = https://api.exchangeratesapi.io/latest?base=
+```
 
 ## Como iniciar o projeto
 
