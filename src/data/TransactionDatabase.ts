@@ -20,6 +20,5 @@ export class TransactionDatabase extends BaseDataBase {
             );
         `)
         await super.destroyConnection()
-
     }
 }
