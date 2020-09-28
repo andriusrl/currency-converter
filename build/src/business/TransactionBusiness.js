@@ -63,7 +63,6 @@ var TransactionBusiness = /** @class */ (function () {
                         return [4 /*yield*/, this.transactionDatabase.createTransaction(new Transaction_1.Transaction(id, origin, value, destiny, date, taxValue))];
                     case 2:
                         resultId = _a.sent();
-                        console.log(taxValue);
                         return [2 /*return*/, {
                                 idTransaction: resultId,
                                 idUser: id,
@@ -74,6 +73,29 @@ var TransactionBusiness = /** @class */ (function () {
                                 tax: taxValue,
                                 date: date.format("YYYY-MM-DD HH:mm:ss")
                             }];
+                }
+            });
+        });
+    };
+    TransactionBusiness.prototype.getTransactions = function (idUser) {
+        return __awaiter(this, void 0, void 0, function () {
+            var result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.transactionDatabase.getTransactions(idUser)];
+                    case 1:
+                        result = _a.sent();
+                        return [2 /*return*/, result.map(function (transaction) {
+                                return {
+                                    idTransaction: transaction.id,
+                                    idUser: transaction.id_user,
+                                    origin: transaction.origin,
+                                    destiny: transaction.destiny,
+                                    tax: transaction.tax,
+                                    date: moment_1.default(transaction.date).format('YYYY-MM-DD HH:mm:ss'),
+                                    value: transaction.value
+                                };
+                            })];
                 }
             });
         });
