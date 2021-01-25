@@ -22,15 +22,6 @@ https://documenter.getpostman.com/view/10580365/TVKHVbX2
 
 #### ./scriptDatabase
 
-## DotEnv
-```
-DB_HOST = ec2-100-25-165-138.compute-1.amazonaws.com
-DB_USER = root
-DB_PASSWORD = By7dg512!
-DB_DATABASE_NAME = sagan_andrius_db
-URL_EXCHANGERATESAPI = https://api.exchangeratesapi.io/latest?base=
-```
-
 ## Como iniciar o projeto
 
 #### Entre no diretório do projeto e execute:
